@@ -20,8 +20,8 @@ import wavio
 ### データの保存先
 ROW_DATA_DIR = './../data/rawData'
 SAVE_DATA_DIR = './../data'
-if(os.path.exists(f"{SAVE_DATA_DIR}/split_data") == False):
-    os.mkdir(f"{SAVE_DATA_DIR}")
+if(os.path.exists(f"{SAVE_DATA_DIR}/splitData") == False):
+    os.mkdir(f"{SAVE_DATA_DIR}/splitData")
 
 def wavToNpy(path, cnt, anomaly=False):
     output_blk = [None] * 8
@@ -32,7 +32,7 @@ def wavToNpy(path, cnt, anomaly=False):
         for j in range(rep):
             new_file_name = '{:05}_{:02}'.format(cnt+j, channel)
             new_wave_data = wav.data[j*wav.rate:(j+10)*wav.rate, :]
-            np.save(f"{SAVE_DATA_DIR}/split_data/{new_file_name}.wav", new_wave_data)
+            np.save(f"{SAVE_DATA_DIR}/splitData/{new_file_name}.npy", new_wave_data)
             output.append(new_file_name)
         output_blk[channel] = output
     return output_blk, len(output_blk[0])
