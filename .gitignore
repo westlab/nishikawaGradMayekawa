@@ -5,8 +5,9 @@ __pycache__
 .local/
 
 # data
-/mount/originalWork/
-/mount/data/**/
+/originalWork/
+/docker/
+/data/**/
 
 # util
 *.log
