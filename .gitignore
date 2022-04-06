@@ -11,6 +11,11 @@ __pycache__
 /data/*.npy
 /data/*.npz
 
+# result
+/result/**/
+/result/*.csv
+/result/*.txt
+
 # util
 *.log
 memo*
