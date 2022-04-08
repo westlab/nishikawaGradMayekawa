@@ -1,0 +1,23 @@
+
+ ==================== confusion matrix ====================
+              prediction
+          | normal | anomaly |
+ normal   |    459 |    131  |
+ anomaly  |      0 |    257  |
+
+
+Accuracy :  0.8453364817001181
+Recall   :  1.0
+Precision:  0.6623711340206185
+F1-score :  0.7968992248062016
+
+ ==================== classification report ====================
+              precision    recall  f1-score   support
+
+           0       1.00      0.78      0.88       590
+           1       0.66      1.00      0.80       257
+
+    accuracy                           0.85       847
+   macro avg       0.83      0.89      0.84       847
+weighted avg       0.90      0.85      0.85       847
+
