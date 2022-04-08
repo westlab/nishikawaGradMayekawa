@@ -12,10 +12,11 @@ __pycache__
 /data/*.npz
 
 # result
-/result/**/
-/result/*.csv
-/result/*.txt
+/result/ch*/**/
+/result/ch*/*.npy
+/result/ch*/*.npz
+/result/ch*/*.pth
+/result/ch*/*.png
 
 # util
-*.log
 memo*
