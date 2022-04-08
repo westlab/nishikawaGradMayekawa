@@ -10,8 +10,10 @@ __pycache__
 /data/**/
 /data/*.npy
 /data/*.npz
+/data/*.wav
 
 # result
+/result/noisedData*/
 /result/ch*/**/
 /result/ch*/*.npy
 /result/ch*/*.npz
@@ -20,3 +22,4 @@ __pycache__
 
 # util
 memo*
+*.memo
