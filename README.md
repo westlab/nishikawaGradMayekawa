@@ -1,6 +1,10 @@
 # nishikawaGradMayekawa
 2021年度の西川卒論のコードを整理したもの
 
+## Environment
+環境構築は kaggle-docker を使用した．
+
+
 ## How To Use
 1. 前処理
 	1. data/rawData_df.csvに正しく録音できていたデータのパスが含まれている
