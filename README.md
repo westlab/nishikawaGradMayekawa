@@ -1,14 +1,19 @@
 # nishikawaGradMayekawa
 2021年度の西川卒論のコードを整理したもの
 
-
 ## How To Use
 1. 前処理
 	1. data/rawData_df.csvに正しく録音できていたデータのパスが含まれている
-	2. preprocessing/splitWave.py を実行することで
+	2. script/01_preprocessing/splitWave.py を実行することで
 		data/ 以下に10秒ごとに分割された音響データが保存される
-	3. stft.py を実行することで分割された音響データに対してSTFTをかけて振幅スペクトログラムと位相スペクトログラムが得られる
-2. モデルの学習
-3. 各チャンネルを組み合わせて異常判定
+2. モデルの学習  
+	script/02_trainAllChannel.py を実行すると各チャンネルでのモデルが学習される．
+	学習結果は適宜 result に保存される．
+3. 各チャンネルを組み合わせて異常判定  
+	1. script/03_ensambleAllChannel.py を実行するとそれぞれの提案手法で異常判定が行われる．
+		最終的なモデルの判定は result/final_prediction.csvとして保存される．
+	2. script/04_visualizeAnomalyScore.py を実行すると異常スコアが可視化される．
 4. 異常音の抽出再構成
+	1. script/06_reconstructWave.py を実行すると異常音が再構成される．
+	2. script/07_visualizeAnomalySound.py で異常音のスペクトログラムが可視化される．
 5. 異常音源方向の特定
