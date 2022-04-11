@@ -17,3 +17,5 @@
 	1. script/06_reconstructWave.py を実行すると異常音が再構成される．
 	2. script/07_visualizeAnomalySound.py で異常音のスペクトログラムが可視化される．
 5. 異常音源方向の特定
+	1. script/offlineLocalization.n のネットワークを HARK で動かして音源定位を行った結果が result/sourcePosition.npy
+	2. script/08_visualizeAnomalyLocation.py で異常音源方向が可視化される

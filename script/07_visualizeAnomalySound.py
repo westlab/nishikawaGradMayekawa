@@ -11,12 +11,6 @@ from mpl_toolkits.axes_grid1 import make_axes_locatable
 import numpy as np
 import pandas as pd
 import seaborn as sns
-import torch
-from torch import nn
-from torch.utils.data import DataLoader
-from torchvision import transforms
-from torchvision.utils import save_image
-from tqdm import tqdm
 
 import mplConf
 
@@ -138,4 +132,4 @@ def forNoiseDiff():
 
 if __name__ == "__main__":
     forModelDiff()
-    forNoiseDiff()
+    # forNoiseDiff()

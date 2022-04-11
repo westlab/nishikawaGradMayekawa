@@ -13,12 +13,14 @@ __pycache__
 /data/*.wav
 
 # result
-/result/noisedData*/
 /result/ch*/**/
 /result/ch*/*.npy
 /result/ch*/*.npz
 /result/ch*/*.pth
 /result/ch*/*.png
+/result/noisedData*/
+/result/txt/
+/result/sourcePosition/
 
 # util
 memo*
