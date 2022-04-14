@@ -1,3 +1,4 @@
+import argparse
 import os
 import codecs
 import copy
@@ -20,12 +21,8 @@ from utils import seed_everything
 from models import AutoEncoder as AE
 from trainer import Trainer
 
-SEED = 42
-GPU = "cuda"
-device = torch.device(GPU if torch.cuda.is_available() else "cpu")
-RESULT_DIR = f"./../result/"
-
-def trainAllChannel():
+def trainAllChannel(seed, device, result_dir):
+    os.mkdir(result_dir)
     default_stdout = sys.stdout
 
     ### logging test score
@@ -38,8 +35,8 @@ def trainAllChannel():
 
     ### trainer loop
     for channel in range(8):
-        seed_everything(seed=SEED)
-        save_dir = f'{RESULT_DIR}/ch0{channel}'
+        seed_everything(seed=seed)
+        save_dir = f'{result_dir}/ch0{channel}'
         print(f'model training ... channel: {channel}/ 8')
         trainer = Trainer(
             model = AE,
@@ -62,4 +59,15 @@ def trainAllChannel():
     df.to_csv(f"{RESULT_DIR}/testAUCScore.csv", index=False)
 
 if __name__ == "__main__":
-    trainAllChannel()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-s", "--seed", default=42, type=int)
+    parser.add_argument("-d", "--device", default=0, type=int)
+    args = parser.parse_args()
+
+    SEED = args.seed
+    GPU = f"cuda:{args.device}"
+    device = torch.device(GPU if torch.cuda.is_available() else "cpu")
+    RESULT_DIR = f"./../result_seed_{SEED}/"
+
+    print(SEED, device, RESULT_DIR)
+    trainAllChannel(seed=SEED, device=device, result_dir=RESULT_DIR)

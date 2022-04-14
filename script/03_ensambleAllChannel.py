@@ -1,3 +1,4 @@
+import argparse
 import os
 import sys
 
@@ -11,7 +12,6 @@ from sklearn.metrics import roc_curve, roc_auc_score, f1_score
 from sklearn.metrics import confusion_matrix, classification_report
 from tqdm import tqdm
 
-RESULT_DIR = "./../result"
 
 def myGamma(z, alpha, scale):
     return gamma.pdf(z, alpha, scale=scale)
@@ -30,7 +30,7 @@ def myGammaFit(pred_normal_valid):
     print(f'{popt[0]} | {popt[1]} | {mean} | {var}')
     return mean, std
 
-if __name__ == '__main__':
+def main(RESULT_DIR):
     ### log
     logFile = f'{RESULT_DIR}/ensamble_log.txt'
     if os.path.exists(logFile):
@@ -177,3 +177,11 @@ if __name__ == '__main__':
     
     print('\n', '=' * 20, 'classification report', '=' * 20)
     print(classification_report(df_pred['label'], df_pred['pred_comp']))
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-r", "--result_dir", default="./../result_seed_42", type=str)
+    args = parser.parse_args()
+    RESULT_DIR = args.result_dir
+
+    main(RESULT_DIR)
