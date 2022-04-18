@@ -21,12 +21,16 @@ from tqdm import tqdm
 
 import mplConf
 
-RESULT_DIR = './../result'
+RESULT_DIR = './../result_seed_42'
 
-rcParams["figure.subplot.left"] = 0.1
-rcParams["figure.subplot.bottom"] = 0.1
-rcParams["figure.subplot.right"] = 0.98
-rcParams["figure.subplot.top"] = 0.98
+rcParams["figure.figsize"] = [4, 2]
+rcParams['xtick.labelsize'] = 8
+rcParams['ytick.labelsize'] = 8
+rcParams["axes.labelsize"] = 8
+rcParams["figure.subplot.left"] = 0.12
+rcParams["figure.subplot.bottom"] = 0.18
+rcParams["figure.subplot.right"] = 0.97
+rcParams["figure.subplot.top"] = 0.99
 
 ### anomaly score of channel 00
 all_data = np.load(f'{RESULT_DIR}/ch00/result_data_all.npz')
@@ -53,7 +57,7 @@ pred_naive = df['pred']
 ### naive-sum
 fig , axes = plt.subplots(1, 1)
 axes.hist(score_naive_normal, bins=50, color='c', alpha=0.9, label='normal')
-axes.hist(score_naive_anomaly, bins=200, color='r', alpha=0.9, label='abnormal')
+axes.hist(score_naive_anomaly, bins=250, color='r', alpha=0.9, label='abnormal')
 axes.set_xlim(10.5, 16)
 axes.set_xlabel("anomaly score", weight = "light")
 axes.set_ylabel("num sample", weight = "light")
